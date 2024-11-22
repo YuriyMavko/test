@@ -1,24 +1,20 @@
 ```mermaid
 classDiagram
-    class Event {
-        +str title
-        +str description
-        +str date
-        +list participant
-        +FileManager file_manager
-        +add_event(path: str, title: str, description: str, date: str, participants: list)
-        +update_event(path: str, date: str, updated_data: dict)
-        +delete_event(path: str, date: str)
-        +display_events_by_year(path: str, year: str) list
-        +display_events_by_month(path: str, year: str, month: str) list
-        +display_events_by_day(path: str, date: str) str
-        +display_events_by_period(path: str, start_date: str, end_date: str) list
+    class EventInterface {
+        +__init__(event_logic)
+        +add_event_interface(path_to_auth)
+        +update_event_interface(path_to_auth)
+        +display_events_interface(path_to_auth)
+        +delete_event_interface(path_to_auth)
+        -_display_year(path_to_auth)
+        -_display_month(path_to_auth)
+        -_display_day(path_to_auth)
+        -_display_period(path_to_auth)
+        -_display_specific_event(path_to_auth)
     }
 
-    class FileManager
-    class Date
+    class Event
 
-    Event --> FileManager
-    Event --> Date
+    EventInterface --> Event
 
 ```
