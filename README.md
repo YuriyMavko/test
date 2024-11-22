@@ -25,4 +25,5 @@ classDiagram
 
     User --> FileManager : uses
     User --> PasswordGenerator : inherits
+
 ```
