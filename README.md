@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
     class PasswordGenerator {
         +generate_password(length: Integer = 8): String
