@@ -53,11 +53,45 @@ classDiagram
         -_remove_event_from_all_events(path: String, date: String, title: String): void
     }
 
+    class UserInterface {
+        -user: User
+        -password_generator: PasswordGenerator
+        +display_register_prompt(): String
+        +display_login_prompt(): String
+        +display_logout_prompt(): String
+        +display_password_prompt(): String
+        +get_user_input(prompt: String): String
+        +validate_input(input: String): Boolean
+    }
+
+    class EventInterface {
+        -event: Event
+        +display_add_event_prompt(): String
+        +display_update_event_prompt(): String
+        +display_delete_event_prompt(): String
+        +get_event_details_input(prompt: String): String
+        +show_event_details(details: String): void
+    }
+
+    class RunProgram {
+        -user_interface: UserInterface
+        -event_interface: EventInterface
+        +run(): void
+        +display_menu(): void
+        +handle_user_choice(choice: Integer): void
+        +handle_event_choice(choice: Integer): void
+    }
+
     %% Relationships
-    User --|> PasswordGenerator : inheritance
-    User --> FileManager : uses
-    Event --> FileManager : uses
-    Event --> Date : uses
-
-
+    RunProgram --> User
+    RunProgram --> UserInterface
+    RunProgram --> Event
+    RunProgram --> EventInterface
+    RunProgram --> FileManager
+    User --> FileManager
+    User --> PasswordGenerator
+    UserInterface --> User
+    Event --> FileManager
+    Event --> Date
+    EventInterface --> Event
 ```
