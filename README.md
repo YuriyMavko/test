@@ -1,27 +1,28 @@
 ```mermaid
 classDiagram
-    class RunProgram {
+    class User {
+        -String username
+        -String password
         -FileManager file_manager
-        -User user
-        -UserInterface ui
-        -Event event_logic
-        -EventInterface event_interface
-        +__init__()
-        +run_program()
+        +__init__(file_manager)
+        +authenticate(email)
+        +register_user(email, password_choice, password, password_length)
+        +login_user(username, password)
+        +logout_user()
+        +read_temp_file()
+        +check_login(username, password)
     }
 
-    class FileManager
-    class User
-    class UserInterface
-    class Event
-    class EventInterface
+    class FileManager {
+        +read_file(path)
+        +write_file(path, data)
+        +read_lines(path)
+    }
 
-    RunProgram --> FileManager : uses
-    RunProgram --> User : interacts with
-    RunProgram --> UserInterface : interacts with
-    RunProgram --> Event : uses
-    RunProgram --> EventInterface : interacts with
+    class PasswordGenerator {
+        +generate_password(length)
+    }
 
-
-
+    User --> FileManager : uses
+    User --> PasswordGenerator : inherits
 ```
