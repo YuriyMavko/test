@@ -1,23 +1,21 @@
 ```mermaid
 classDiagram
-    class RunProgram {
+    class User {
+        +str username
+        +str password
         +FileManager file_manager
-        +User user
-        +UserInterface ui
-        +Event event_logic
-        +EventInterface event_interface
-        +run_program()
+        +authenticate(email: str) bool
+        +register_user(email: str, password_choice: int, password: str=None, password_length: int=None) str
+        +login_user(username: str, password: str) str
+        +logout_user() str
+        +read_temp_file() str, str
+        +check_login(username: str, password: str) bool
     }
 
     class FileManager
-    class User
-    class UserInterface
-    class Event
-    class EventInterface
+    class PasswordGenerator
 
-    RunProgram --> FileManager
-    RunProgram --> User
-    RunProgram --> UserInterface
-    RunProgram --> Event
-    RunProgram --> EventInterface
+    User --> FileManager
+    User <|-- PasswordGenerator
+
 ```
