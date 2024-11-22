@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
     class RunProgram {
         +FileManager file_manager
@@ -8,8 +9,15 @@ classDiagram
         +run_program()
     }
 
+    class FileManager
+    class User
+    class UserInterface
+    class Event
+    class EventInterface
+
     RunProgram --> FileManager
     RunProgram --> User
     RunProgram --> UserInterface
     RunProgram --> Event
     RunProgram --> EventInterface
+```
